@@ -7,22 +7,26 @@
     <span class="font-2-header text-color-1">
       {{ t("common.subtitle") }}
     </span>
+
+    <aio-language-switcher @on-switch="changeLanguage" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import {
-  translate,
-} from '@/lang/main';
+import AioLanguageSwitcher from './language-switcher.vue';
 
 import {
-  usePageContext,
-} from '@/renderer/usePageContext';
+  useLanguage,
+} from './use-language';
+import {
+  useTranslation,
+} from './use-translation';
 
-const pageContext = usePageContext();
-const l = pageContext.browserLanguages;
-
-const t = (path: string) => {
-  return translate(path, l);
-};
+const {
+  currentLanguage, changeLanguage,
+} = useLanguage();
+  
+const {
+  t,
+} = useTranslation();
 </script>
