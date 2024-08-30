@@ -1,6 +1,6 @@
 import {
   useTranslation,
-} from '@/composition/use-translation';
+} from './use-translation';
 import {
   LOCALE,
 } from './main';
